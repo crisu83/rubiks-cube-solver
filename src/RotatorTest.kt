@@ -1,6 +1,4 @@
-import junit.framework.TestCase
-
-class RotatorTest : TestCase() {
+class RotatorTest : CubeTestCase() {
     fun testRotateWhiteFaceClockwise() {
         val cube = createCube()
         Rotator.rotate(cube, Color.WHITE, Direction.CLOCKWISE)
@@ -191,13 +189,5 @@ class RotatorTest : TestCase() {
             Y: YYYYYYYYY
             """
         )
-    }
-
-    private fun assertCube(cube: Cube, actual: String) {
-        assertEquals(cube.toString(), actual.trimIndent())
-    }
-
-    private fun createCube(size: Int = 3): Cube {
-        return Cube(size)
     }
 }

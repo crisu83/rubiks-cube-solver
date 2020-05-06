@@ -1,9 +1,9 @@
 /**
  * A face of Rubik's Cube of the given color and size.
  */
-class Face(private val color: Color, private val size: Int) {
+class Face(private val color: Color, size: Int) {
     /**
-     * The cells of the face indexed from top to bottom.
+     * The cells of the face indexed from top left to bottom right.
      *
      * For example a 3x3x3 cube would represented as:
      *
