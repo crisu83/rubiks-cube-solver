@@ -286,8 +286,8 @@ class Rotator3x3x3(private val cube: Cube) : RotatorInterface {
      * Swaps two cells at given indices between two faces.
      */
     private fun swap(aFace: Face, aIndex: Int, bFace: Face, bIndex: Int) {
-        val tmp = bFace.getCellColor(bIndex)
-        bFace.setCellColor(bIndex, aFace.getCellColor(aIndex))
-        aFace.setCellColor(aIndex, tmp)
+        val tmp = bFace.tiles[bIndex]
+        bFace.tiles[bIndex] = aFace.tiles[aIndex]
+        aFace.tiles[aIndex] = tmp
     }
 }

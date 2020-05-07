@@ -13,17 +13,9 @@ class Face(private val color: Color, size: Int) {
      *
      * A new face is always a single color until scrambled.
      */
-    private val cells = Array(size * size) { _ -> color }
-
-    fun getCellColor(index: Int): Color {
-        return cells[index]
-    }
-
-    fun setCellColor(index: Int, color: Color) {
-        cells[index] = color
-    }
+    val tiles = Array(size * size) { _ -> color }
 
     override fun toString(): String {
-        return color.toString() + ": " + cells.joinToString("")
+        return color.toString() + ": " + tiles.joinToString("")
     }
 }
