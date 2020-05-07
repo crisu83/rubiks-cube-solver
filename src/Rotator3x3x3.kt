@@ -3,6 +3,11 @@
  */
 class Rotator3x3x3(private val cube: Cube) : RotatorInterface {
     /**
+     * A list of moves performed by this rotator.
+     */
+    private val moves = mutableListOf<Move>()
+
+    /**
      * Rotates the face of the given cube in the given direction.
      *
      * For example rotating a face clockwise:
@@ -20,36 +25,42 @@ class Rotator3x3x3(private val cube: Cube) : RotatorInterface {
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.GREEN))
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.ORANGE))
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.BLUE))
+                        moves.add(Move.WHITE_CLOCKWISE)
                     }
                     Color.RED -> {
                         rotateFaceClockwise(cube.getFace(Color.RED))
                         swapBottomToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.BLUE))
                         swapBottomToTop(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapBottomToRight(cube.getFace(Color.WHITE), cube.getFace(Color.GREEN))
+                        moves.add(Move.RED_CLOCKWISE)
                     }
                     Color.BLUE -> {
                         rotateFaceClockwise(cube.getFace(Color.BLUE))
                         swapRightToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.ORANGE))
                         swapRightToRight(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapRightToRight(cube.getFace(Color.WHITE), cube.getFace(Color.RED))
+                        moves.add(Move.BLUE_CLOCKWISE)
                     }
                     Color.ORANGE -> {
                         rotateFaceClockwise(cube.getFace(Color.ORANGE))
                         swapTopToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.GREEN))
                         swapTopToBottom(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapTopToRight(cube.getFace(Color.WHITE), cube.getFace(Color.BLUE))
+                        moves.add(Move.ORANGE_CLOCKWISE)
                     }
                     Color.GREEN -> {
                         rotateFaceClockwise(cube.getFace(Color.GREEN))
                         swapLeftToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.RED))
                         swapLeftToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapLeftToRight(cube.getFace(Color.WHITE), cube.getFace(Color.ORANGE))
+                        moves.add(Move.GREEN_CLOCKWISE)
                     }
                     Color.YELLOW -> {
                         rotateFaceClockwise(cube.getFace(Color.YELLOW))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.BLUE))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.ORANGE))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.GREEN))
+                        moves.add(Move.YELLOW_CLOCKWISE)
                     }
                 }
             Direction.COUNTER_CLOCKWISE ->
@@ -59,39 +70,49 @@ class Rotator3x3x3(private val cube: Cube) : RotatorInterface {
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.BLUE))
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.ORANGE))
                         swapTopToTop(cube.getFace(Color.RED), cube.getFace(Color.GREEN))
+                        moves.add(Move.WHITE_COUNTER_CLOCKWISE)
                     }
                     Color.RED -> {
                         rotateFaceCounterClockwise(cube.getFace(Color.RED))
                         swapBottomToRight(cube.getFace(Color.WHITE), cube.getFace(Color.GREEN))
                         swapBottomToTop(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapBottomToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.BLUE))
+                        moves.add(Move.RED_COUNTER_CLOCKWISE)
                     }
                     Color.BLUE -> {
                         rotateFaceCounterClockwise(cube.getFace(Color.BLUE))
                         swapRightToRight(cube.getFace(Color.WHITE), cube.getFace(Color.RED))
                         swapRightToRight(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapRightToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.ORANGE))
+                        moves.add(Move.BLUE_COUNTER_CLOCKWISE)
                     }
                     Color.ORANGE -> {
                         rotateFaceCounterClockwise(cube.getFace(Color.ORANGE))
                         swapTopToRight(cube.getFace(Color.WHITE), cube.getFace(Color.BLUE))
                         swapTopToBottom(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapTopToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.GREEN))
+                        moves.add(Move.ORANGE_COUNTER_CLOCKWISE)
                     }
                     Color.GREEN -> {
                         rotateFaceCounterClockwise(cube.getFace(Color.GREEN))
                         swapLeftToRight(cube.getFace(Color.WHITE), cube.getFace(Color.ORANGE))
                         swapLeftToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.YELLOW))
                         swapLeftToLeft(cube.getFace(Color.WHITE), cube.getFace(Color.RED))
+                        moves.add(Move.GREEN_COUNTER_CLOCKWISE)
                     }
                     Color.YELLOW -> {
                         rotateFaceCounterClockwise(cube.getFace(Color.YELLOW))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.GREEN))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.ORANGE))
                         swapBottomToBottom(cube.getFace(Color.RED), cube.getFace(Color.BLUE))
+                        moves.add(Move.YELLOW_COUNTER_CLOCKWISE)
                     }
                 }
         }
+    }
+
+    override fun getMoves(): Array<Move> {
+        return moves.toTypedArray()
     }
 
     /**
