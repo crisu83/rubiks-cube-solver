@@ -1,9 +1,7 @@
 /**
  * A Rubik's Cube of the given size.
- *
- * Please note that currently only 3x3x3 cubes are supported.
  */
-class Cube(size: Int = 3) {
+class Cube(val size: Int = 3) {
     /**
      * The six faces of the cube (from top to bottom: WHITE, RED, BLUE, ORANGE, GREEN, YELLOW).
      *

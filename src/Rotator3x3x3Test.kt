@@ -1,7 +1,8 @@
-class RotatorTest : CubeTestCase() {
+class Rotator3x3x3Test : CubeTestCase() {
     fun testRotateWhiteFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.WHITE, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.WHITE, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -16,8 +17,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateRedFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.RED, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.RED, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -32,8 +34,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateBlueFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.BLUE, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.BLUE, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -48,8 +51,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateOrangeFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.ORANGE, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.ORANGE, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -64,8 +68,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateGreenFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.GREEN, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.GREEN, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -80,8 +85,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateYellowFaceClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.YELLOW, Direction.CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.YELLOW, Direction.CLOCKWISE)
         assertCube(
             cube,
             """
@@ -96,8 +102,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateWhiteFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.WHITE, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.WHITE, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -112,8 +119,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateRedFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.RED, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.RED, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -128,8 +136,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateBlueFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.BLUE, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.BLUE, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -144,8 +153,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateOrangeFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.ORANGE, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.ORANGE, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -160,8 +170,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateGreenFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.GREEN, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.GREEN, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -176,8 +187,9 @@ class RotatorTest : CubeTestCase() {
     }
 
     fun testRotateYellowFaceCounterClockwise() {
-        val cube = createCube()
-        Rotator.rotate(cube, Color.YELLOW, Direction.COUNTER_CLOCKWISE)
+        val cube = Cube()
+        val rotator = createRotator(cube)
+        rotator.rotate(Color.YELLOW, Direction.COUNTER_CLOCKWISE)
         assertCube(
             cube,
             """
@@ -189,5 +201,9 @@ class RotatorTest : CubeTestCase() {
             Y: YYYYYYYYY
             """
         )
+    }
+
+    private fun createRotator(cube: Cube): RotatorInterface {
+        return RotatorFactory.create(cube)
     }
 }

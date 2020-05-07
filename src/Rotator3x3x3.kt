@@ -1,6 +1,9 @@
-object Rotator {
+/**
+ * Rotator service that allows to rotate the given cube.
+ */
+class Rotator3x3x3(private val cube: Cube) : RotatorInterface {
     /**
-     * Rotates the face in the given direction.
+     * Rotates the face of the given cube in the given direction.
      *
      * For example rotating a face clockwise:
      *
@@ -8,7 +11,7 @@ object Rotator {
      *   3 4 5  >  7 4 1  >  5 4 3  >  1 4 7
      *   6 7 8     8 5 2     2 1 0     0 3 6
      */
-    fun rotate(cube: Cube, color: Color, direction: Direction = Direction.CLOCKWISE) {
+    override fun rotate(color: Color, direction: Direction) {
         when (direction) {
             Direction.CLOCKWISE ->
                 when (color) {
