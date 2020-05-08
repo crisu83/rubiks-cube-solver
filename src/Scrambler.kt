@@ -6,7 +6,7 @@ object Scrambler {
      */
     fun scramble(cube: Cube, numberOfMoves: Int = 20, seed: Int? = null) {
         val sequence = randomSequence(numberOfMoves, seed)
-        println("Scramble" + (if (seed is Int) "($seed)" else "") + ": " + sequence.joinToString(", "))
+        println("Scramble" + (if (seed is Int) "($seed)" else "") + ": " + sequence.joinToString(" "))
         Sequencer.play(cube, sequence)
     }
 

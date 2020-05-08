@@ -1,62 +1,62 @@
 enum class Move {
     WHITE_CLOCKWISE {
         override fun toString(): String {
-            return "W "
+            return "W1"
         }
     },
     RED_CLOCKWISE {
         override fun toString(): String {
-            return "R "
+            return "R1"
         }
     },
     BLUE_CLOCKWISE {
         override fun toString(): String {
-            return "B "
+            return "B1"
         }
     },
     ORANGE_CLOCKWISE {
         override fun toString(): String {
-            return "O "
+            return "O1"
         }
     },
     GREEN_CLOCKWISE {
         override fun toString(): String {
-            return "G "
+            return "G1"
         }
     },
     YELLOW_CLOCKWISE {
         override fun toString(): String {
-            return "Y "
+            return "Y1"
         }
     },
     WHITE_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "W'"
+            return "W3"
         }
     },
     RED_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "R'"
+            return "R3"
         }
     },
     BLUE_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "B'"
+            return "B3"
         }
     },
     ORANGE_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "O'"
+            return "O3"
         }
     },
     GREEN_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "G'"
+            return "G3"
         }
     },
     YELLOW_COUNTER_CLOCKWISE {
         override fun toString(): String {
-            return "Y'"
+            return "Y3"
         }
     }
 }
